@@ -1,8 +1,9 @@
 {
-  "index": "Introduction",
-  "get-started": "Get Started",
-  "features": "Features",
-  "themes": "Themes",
-  "advanced": "Advanced",
-  "escrow": "Escrow"
+  "Overview": "Overview",
+  "GettingStarted": "Getting Started",
+  "Raids": "Raids",
+  "Escrow": "Escrow",
+  "Discord": "Discord",
+  "Community": "Community",
+  "AdditionalResources": "Additional Resources"
 }
