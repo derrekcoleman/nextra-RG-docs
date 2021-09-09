@@ -1,5 +1,7 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/Discord/discord-getting-started": "pages/Discord/discord-getting-started.js",
+  "/Overview/overview-code-of-conduct": "pages/Overview/overview-code-of-conduct.js"
 }
