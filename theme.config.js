@@ -1,6 +1,6 @@
 export default {
-  github: 'https://github.com/shuding/nextra',
-  docsRepositoryBase: 'https://github.com/shuding/nextra/blob/master',
+  github: 'https://github.com/derrekcoleman/nextra-RG-docs',
+  docsRepositoryBase: 'https://github.com/derrekcoleman/nextra-RG-docs',
   titleSuffix: ' | RaidGuild Handbook',
   logo: (
     <>
@@ -64,5 +64,4 @@ export default {
   footer: false,
   footerEditLink: 'Edit this page on GitHub',
   footerText: <>MIT {new Date().getFullYear()} © Nextra.</>,
-  unstable_faviconGlyph: '👋',
 }
