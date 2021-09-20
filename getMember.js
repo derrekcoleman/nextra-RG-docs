@@ -5,14 +5,15 @@ export default async function getMember() {
   const provider = new ethers.providers.Web3Provider(window.ethereum)
 
   // Prompt user for account connections
-  let result = await provider.send('eth_requestAccounts', [])
-  console.log('The address is ', result[0])
+  //let result = await provider.send('eth_requestAccounts', [])
+  //console.log('The address is ', result[0])
+
   const signer = provider.getSigner()
-
   const userAddress = await signer.getAddress()
-
-  /*const signature = await signer.signMessage('Sign here.');
-  console.log('Signature output:', signature);  */
+  /*
+  const signature = await signer.signMessage('Sign here.')
+  console.log('Signature output:', signature)
+  */
 
   const contractAddress = '0xD83AC7D30495e1E1d2f42a0D796a058089719a45'
   const abi = [
@@ -37,8 +38,10 @@ export default async function getMember() {
   const memberData = await contract.members(userAddress)
 
   //Method 1: Return share count as a number
-  /* const shares = BigNumber.from(memberData[1]).toNumber();
-  return shares; */
+  /*
+  const shares = BigNumber.from(memberData[1]).toNumber()
+  return shares
+  */
 
   //Method 2: Return 'exists' value as a boolean
   const existence = memberData.exists
