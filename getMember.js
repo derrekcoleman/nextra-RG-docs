@@ -1,4 +1,11 @@
-import { ethers, BigNumber } from 'ethers'
+import { ethers, BigNumber, utils } from 'ethers'
+
+export const checkSignature = (message, signature) => {
+  const msgHash = utils.hashMessage(message)
+  const msgHashBytes = utils.arrayify(msgHash)
+  const account = utils.recoverAddress(msgHashBytes, signature)
+  return account.toLowerCase() || ''
+}
 
 export default async function getMember() {
   //Need to add 'Please switch to the approripate network' if not xDai
@@ -10,10 +17,11 @@ export default async function getMember() {
 
   const signer = provider.getSigner()
   const userAddress = await signer.getAddress()
-  /*
-  const signature = await signer.signMessage('Sign here.')
-  console.log('Signature output:', signature)
-  */
+
+  const message = 'Sign here.'
+  const signature = await signer.signMessage(message)
+  const accountFromSignature = checkSignature(message, signature)
+  console.log('Account from signature is ', accountFromSignature)
 
   const contractAddress = '0xD83AC7D30495e1E1d2f42a0D796a058089719a45'
   const abi = [
@@ -36,14 +44,6 @@ export default async function getMember() {
   ]
   const contract = new ethers.Contract(contractAddress, abi, provider)
   const memberData = await contract.members(userAddress)
-
-  //Method 1: Return share count as a number
-  /*
-  const shares = BigNumber.from(memberData[1]).toNumber()
-  return shares
-  */
-
-  //Method 2: Return 'exists' value as a boolean
   const existence = memberData.exists
   return existence
 }
